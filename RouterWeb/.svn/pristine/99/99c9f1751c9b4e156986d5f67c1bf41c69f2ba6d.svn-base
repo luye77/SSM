@@ -1,0 +1,23 @@
+package com.baimi.routerweb.datasource;
+
+/**
+ * @ClassName: DataSourceContextHolder 
+ * @Description: 动态切换数据源工具类
+ * @author: libiao
+ * @date: 2015-12-14 下午5:13:58
+ */
+public class DataSourceContextHolder {
+    private static final ThreadLocal<String> contextHolder = new ThreadLocal<String>();  
+    
+    public static void setDbType(String dbType) {  
+        contextHolder.set(dbType);  
+    }  
+  
+    public static String getDbType() {  
+        return ((String) contextHolder.get());  
+    }  
+  
+    public static void clearDbType() {  
+        contextHolder.remove();  
+    }  
+}
